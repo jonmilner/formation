@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+SETUP_ROOT=$HOME/.setup
+
+DIRECTORIES=(
+    $HOME/git
+)
+
+step "Making directories…"
+for dir in ${DIRECTORIES[@]}; do
+    mkd $dir
+done
