@@ -88,18 +88,6 @@ if [ ! -d "$HOME/.bin/" ]; then
 fi
 
 # -----------------------------------------------------------------------------
-# Bash-it
-# -----------------------------------------------------------------------------
-if [ -d "$HOME/.bash_it" ]; then
-	print_success_muted "Bash-it already installed. Skipping."
-else
-	step "Installing Bash-it…"
-	git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-	~/.bash_it/install.sh --silent --no-modify-config
-	print_success "Bash-it installed!"
-fi
-
-# -----------------------------------------------------------------------------
 # NVM
 # -----------------------------------------------------------------------------
 if [ -x nvm ]; then
@@ -133,6 +121,19 @@ if brew list | grep -Fq brew-cask; then
 	brew uninstall --force brew-cask
 	print_success "Homebrew-Cask uninstalled!"
 fi
+
+# -----------------------------------------------------------------------------
+# ZSH
+# -----------------------------------------------------------------------------
+ if ! brew ls --versions zsh > /dev/null; then
+         brew install zsh
+ fi
+ if ! brew ls --versions zsh-syntax-highlighting > /dev/null; then
+         brew install zsh-syntax-highlighting 
+ fi
+ if [ ! -d ~/.oh-my-zsh ]; then
+         sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ fi
 
 ###############################################################################
 # INSTALL: brews
