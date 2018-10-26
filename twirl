@@ -595,7 +595,7 @@ get_github_version() {
 open_application() {
 	if ask "Do you want to open $app?" Y; then
 		echo_install "Opening $app"
-        	open ~/../../../$app
+        	open ~/../../../$app.app
         	print_in_green "${bold}✓ opened!${normal}\n"
 	else
 		return 0;
