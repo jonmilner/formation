@@ -214,7 +214,6 @@ fi
 if [ -e $cwd/swag/setup ]; then
 	chapter "Setup Applications…"
 	
-	IFS=$"\n"
 	for app in $(<$cwd/swag/setup); do
 	    open_application "$app"
 	done
