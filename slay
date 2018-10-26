@@ -214,9 +214,11 @@ fi
 if [ -e $cwd/swag/setup ]; then
 	chapter "Setup Applications…"
 	
-	for app in $(<$cwd/swag/setup); do
-	    open_application "$app"
-	done
+	while read app; do open_application "$app"; done < $cwd/swag/setup
+	
+# 	for app in $(<$cwd/swag/setup); do
+# 	    open_application "$app"
+# 	done
 fi
 
 ###############################################################################
